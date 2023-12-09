@@ -1,4 +1,4 @@
-local overrides = require("custom.configs.overrides")
+local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
@@ -25,7 +25,7 @@ local plugins = {
   -- override plugin configs
   {
     "williamboman/mason.nvim",
-    opts = overrides.mason
+    opts = overrides.mason,
   },
 
   {
@@ -40,10 +40,11 @@ local plugins = {
 
   -- Install a plugin
   {
-    "max397574/better-escape.nvim",
-    event = "InsertEnter",
+    "saecki/crates.nvim",
+    event = { "BufRead Cargo.toml" },
+    dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
-      require("better_escape").setup()
+      require("crates").setup()
     end,
   },
 
