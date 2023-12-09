@@ -27,7 +27,6 @@ M.mason = {
     "lua-language-server",
     "stylua",
     "rust-analyzer",
-    "rustfmt"
   },
 }
 
