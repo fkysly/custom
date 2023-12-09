@@ -17,7 +17,7 @@ M.ui = {
       "             __   __             ",
       "            \\/---\\/             ",
       "              ). .(              ",
-      "            ( (\") )             ",
+      "             ( o o )             ",
       "              )   (              ",
       "            /     \\             ",
       "            (       )            ",
@@ -33,6 +33,10 @@ M.ui = {
       { "  Themes", "Spc t h", "Telescope themes" },
       { "  Mappings", "Spc c h", "NvCheatsheet" },
     },
+  },
+  statusline = {
+    theme = "minimal",
+    separator_style = "block"
   },
 }
 
