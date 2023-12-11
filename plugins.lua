@@ -38,6 +38,11 @@ local plugins = {
     opts = overrides.nvimtree,
   },
 
+  {
+    "hrsh7th/nvim-cmp",
+    opts = overrides.cmp,
+  },
+
   -- Install a plugin
   {
     "saecki/crates.nvim",
@@ -51,6 +56,49 @@ local plugins = {
   {
     "Pocco81/TrueZen.nvim",
     cmd = { "TZAtaraxis", "TZMinimalist" },
+  },
+
+  {
+    "stevearc/aerial.nvim",
+    cmd = { "Aerial", "AerialToggle" },
+    keys = {
+      { "<leader>so", "<cmd>AerialToggle!<cr>", desc = "Toggle Symbols Outline" },
+      { "<leader>ta", "<cmd>Telescope aerial<cr>", desc = "Toggle Telescope Aerial" },
+    },
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      require("aerial").setup {
+        layout = {
+          min_width = 20,
+        },
+      }
+      require("telescope").load_extension "aerial"
+    end,
+  },
+
+  -- {
+  --   "SmiteshP/nvim-navic",
+  --   event = "BufRead",
+  --   config = function()
+  --     require("nvim-navic").setup {
+  --       lsp = {
+  --         auto_attach = true,
+  --       },
+  --     }
+  --   end,
+  -- },
+
+  {
+    "Bekaboo/dropbar.nvim",
+    lazy = false,
+    -- optional, but required for fuzzy finder support
+    dependencies = {
+      "nvim-telescope/telescope-fzf-native.nvim",
+    },
   },
 
   -- To make a plugin not be loaded
