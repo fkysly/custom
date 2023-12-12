@@ -62,7 +62,7 @@ local plugins = {
     "stevearc/aerial.nvim",
     cmd = { "Aerial", "AerialToggle" },
     keys = {
-      { "<leader>so", "<cmd>AerialToggle!<cr>", desc = "Toggle Symbols Outline" },
+      { "<leader>o", "<cmd>AerialToggle!<cr>", desc = "Toggle Symbols Outline" },
       { "<leader>ta", "<cmd>Telescope aerial<cr>", desc = "Toggle Telescope Aerial" },
     },
     dependencies = {
@@ -79,18 +79,6 @@ local plugins = {
       require("telescope").load_extension "aerial"
     end,
   },
-
-  -- {
-  --   "SmiteshP/nvim-navic",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("nvim-navic").setup {
-  --       lsp = {
-  --         auto_attach = true,
-  --       },
-  --     }
-  --   end,
-  -- },
 
   {
     "Bekaboo/dropbar.nvim",
