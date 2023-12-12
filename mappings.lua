@@ -14,7 +14,7 @@ M.general = {
   },
   i = {
     ["jk"] = { "<ESC>", "escape insert mode", opts = { nowait = true } },
-    ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
+    ["<C-s>"] = { "<cmd> w <CR><ESC>", "Save file" },
     ["<D-s>"] = { "<cmd> w <CR>", "Save file" },
     ["<D-a>"] = { "<ESC>ggVG", "Select All" },
   },
