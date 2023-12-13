@@ -89,6 +89,13 @@ local plugins = {
     },
   },
 
+  {
+    "sindrets/diffview.nvim",
+    cmd = { "DiffviewOpen" },
+    keys = {
+      { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Git Diffview Open" },
+    },
+  },
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
