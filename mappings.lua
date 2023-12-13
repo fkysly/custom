@@ -6,6 +6,7 @@ M.general = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
     ["<D-s>"] = { "<cmd> w <CR>", "Save file" },
     ["<D-a>"] = { "ggVG", "Select All" },
+    ["<leader>rr"] = { "<cmd> RustRun <CR>", "Rust Run" },
   },
   v = {
     [">"] = { ">gv", "indent" },
