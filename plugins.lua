@@ -201,7 +201,7 @@ local plugins = {
         return newVirtText
       end
     },
-  }
+  },
 
   {
     "sindrets/diffview.nvim",
