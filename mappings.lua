@@ -9,6 +9,8 @@ M.general = {
     ["<leader>rr"] = { "<cmd> RustRun <CR>", "Rust Run" },
     ["<leader>rt"] = { "<cmd> RustTest <CR>", "Rust Test" },
     ["<leader>rta"] = { "<cmd> RustTest! <CR>", "Rust Test All" },
+    ["<M-k>"] = { "kddpk", "move up one line" },
+    ["<M-j>"] = { "ddp", "move down one line" },
   },
   v = {
     [">"] = { ">gv", "indent" },
@@ -20,6 +22,8 @@ M.general = {
     ["<C-s>"] = { "<cmd> w <CR><ESC>", "Save file" },
     ["<D-s>"] = { "<cmd> w <CR>", "Save file" },
     ["<D-a>"] = { "<ESC>ggVG", "Select All" },
+    ["<M-k>"] = { "<Esc>kddpk", "move up one line" },
+    ["<M-j>"] = { "<Esc>ddp", "move down one line" },
   },
 }
 
