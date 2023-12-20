@@ -16,6 +16,8 @@ M.general = {
     [">"] = { ">gv", "indent" },
     ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
     ["<D-s>"] = { "<cmd> w <CR>", "Save file" },
+    ["<M-k>"] = { "m1dkPm`V`1kk", "move up mulit line" },
+    ["<M-j>"] = { "djm`Pgv<Esc>jv``kV", "move down mulit line" },
   },
   i = {
     ["jk"] = { "<ESC>", "escape insert mode", opts = { nowait = true } },
