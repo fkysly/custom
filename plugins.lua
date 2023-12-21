@@ -89,70 +89,83 @@ local plugins = {
     },
   },
   {
-    'kevinhwang91/nvim-ufo',
+    "kevinhwang91/nvim-ufo",
     dependencies = {
-      'kevinhwang91/promise-async',
-       {
-          "luukvbaal/statuscol.nvim",
-          config = function()
-            local builtin = require("statuscol.builtin")
-            require("statuscol").setup(
-              {
-                relculright = true,
-                segments = {
-                  {text = {builtin.foldfunc}, click = "v:lua.ScFa"},
-                  {text = {"%s"}, click = "v:lua.ScSa"},
-                  {text = {builtin.lnumfunc, " "}, click = "v:lua.ScLa"}
-                }
-              }
-            )
-          end
-
-        }
+      "kevinhwang91/promise-async",
+      {
+        "luukvbaal/statuscol.nvim",
+        config = function()
+          local builtin = require "statuscol.builtin"
+          require("statuscol").setup {
+            relculright = true,
+            segments = {
+              { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
+              { text = { "%s" }, click = "v:lua.ScSa" },
+              { text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
+            },
+          }
+        end,
+      },
     },
     event = "BufReadPost", -- needed for folds to load in time
     keys = {
-			{
-				"zr",
-				function() require("ufo").openFoldsExceptKinds { "comment" } end,
-				desc = " 󱃄 Open All Folds except comments",
-			},
-			{ "zm", function() require("ufo").closeAllFolds() end, desc = " 󱃄 Close All Folds" },
-			{
-				"z1",
-				function() require("ufo").closeFoldsWith(1) end,
-				desc = " 󱃄 Close L1 Folds",
-			},
-			{
-				"z2",
-				function() require("ufo").closeFoldsWith(2) end,
-				desc = " 󱃄 Close L2 Folds",
-			},
-			{
-				"z3",
-				function() require("ufo").closeFoldsWith(3) end,
-				desc = " 󱃄 Close L3 Folds",
-			},
-			{
-				"z4",
-				function() require("ufo").closeFoldsWith(4) end,
-				desc = " 󱃄 Close L4 Folds",
-			},
-		},
-		init = function()
-			-- INFO fold commands usually change the foldlevel, which fixes folds, e.g.
-			-- auto-closing them after leaving insert mode, however ufo does not seem to
-			-- have equivalents for zr and zm because there is no saved fold level.
-			-- Consequently, the vim-internal fold levels need to be disabled by setting
-			-- them to 99
-			vim.o.foldlevel = 99
-			vim.o.foldlevelstart = 99
-      vim.o.foldcolumn = '1' -- '0' is not bad
+      {
+        "zr",
+        function()
+          require("ufo").openFoldsExceptKinds { "comment" }
+        end,
+        desc = " 󱃄 Open All Folds except comments",
+      },
+      {
+        "zm",
+        function()
+          require("ufo").closeAllFolds()
+        end,
+        desc = " 󱃄 Close All Folds",
+      },
+      {
+        "z1",
+        function()
+          require("ufo").closeFoldsWith(1)
+        end,
+        desc = " 󱃄 Close L1 Folds",
+      },
+      {
+        "z2",
+        function()
+          require("ufo").closeFoldsWith(2)
+        end,
+        desc = " 󱃄 Close L2 Folds",
+      },
+      {
+        "z3",
+        function()
+          require("ufo").closeFoldsWith(3)
+        end,
+        desc = " 󱃄 Close L3 Folds",
+      },
+      {
+        "z4",
+        function()
+          require("ufo").closeFoldsWith(4)
+        end,
+        desc = " 󱃄 Close L4 Folds",
+      },
+    },
+    init = function()
+      -- INFO fold commands usually change the foldlevel, which fixes folds, e.g.
+      -- auto-closing them after leaving insert mode, however ufo does not seem to
+      -- have equivalents for zr and zm because there is no saved fold level.
+      -- Consequently, the vim-internal fold levels need to be disabled by setting
+      -- them to 99
+      vim.o.foldlevel = 99
+      vim.o.foldlevelstart = 99
+      vim.o.foldcolumn = "1" -- '0' is not bad
       vim.o.foldenable = true
-		end,
-		opts = {
+    end,
+    opts = {
       provider_selector = function()
-        return {'treesitter', 'indent'}
+        return { "treesitter", "indent" }
       end,
       preview = {
         win_config = {
@@ -167,7 +180,7 @@ local plugins = {
           jumpBot = "]",
         },
       },
-			close_fold_kinds = { "imports", "comment" },
+      close_fold_kinds = { "imports", "comment" },
       fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
         local newVirtText = {}
         local totalLines = vim.api.nvim_buf_line_count(0)
@@ -194,12 +207,11 @@ local plugins = {
           end
           curWidth = curWidth + chunkWidth
         end
-        local rAlignAppndx =
-          math.max(math.min(vim.opt.textwidth["_value"], width - 1) - curWidth - sufWidth, 0)
+        local rAlignAppndx = math.max(math.min(vim.opt.textwidth["_value"], width - 1) - curWidth - sufWidth, 0)
         suffix = (" "):rep(rAlignAppndx) .. suffix
         table.insert(newVirtText, { suffix, "MoreMsg" })
         return newVirtText
-      end
+      end,
     },
   },
 
@@ -209,6 +221,17 @@ local plugins = {
     keys = {
       { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Git Diffview Open" },
     },
+  },
+
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup {
+        -- Configuration here, or leave empty to use defaults
+      }
+    end,
   },
   -- To make a plugin not be loaded
   -- {
