@@ -14,4 +14,16 @@ for _, lsp in ipairs(servers) do
 end
 
 --
--- lspconfig.pyright.setup { blabla}
+lspconfig.rust_analyzer.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    ["rust-analyzer"] = {
+      procMacro = {
+        ignored = {
+          ["napi-derive"] = { "napi" },
+        },
+      },
+    },
+  },
+}
