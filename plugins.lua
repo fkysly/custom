@@ -233,6 +233,20 @@ local plugins = {
       }
     end,
   },
+  {
+    "klen/nvim-test",
+    cmd = { "TestNearest", "TestSuite", "TestFile", "TestEdit", "TestLast", "TestVisit", "TestInfo" },
+    keys = {
+      { "<leader>tn", "<cmd>TestNearest<cr>", desc = "run the test nearest to the cursor" },
+      { "<leader>tl", "<cmd>TestLast<cr>", desc = "rerun the latest test" },
+      { "<leader>tf", "<cmd>TestFile<cr>", desc = "run all tests for the current file" },
+      { "<leader>ts", "<cmd>TestSuite<cr>", desc = "run the whole test suite" },
+      { "<leader>tv", "<cmd>TestVisit<cr>", desc = "open the last run test in the current buffer" },
+    },
+    config = function()
+      require("nvim-test").setup()
+    end,
+  },
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
